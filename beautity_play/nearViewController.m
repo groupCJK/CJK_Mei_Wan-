@@ -9,7 +9,7 @@
 #import "nearViewController.h"
 #import "CJKNavigationView.h"
 #import "headerName.pch"
-
+#import "publicHeader.h"
 @interface nearViewController ()<CJKNavigationViewDelegate>
 
 @end
@@ -25,14 +25,19 @@
     [super viewDidLoad];
     
     [self creat_navigationView];
-    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
+}
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 - (void)creat_navigationView
 {
     CJKNavigationView * baseView = [[CJKNavigationView alloc]initWithFrame:CGRectMake(0, 20, width_screen, 35)];
     baseView.delegate = self;
     baseView.titleLabel.text = @"首页";
+    [baseView.leftButton setBackgroundImage:[UIImage imageNamed:@"list_2"] forState:UIControlStateNormal];
+    [baseView.rightButton setBackgroundImage:[UIImage imageNamed:@"shouye-sousuo"] forState:UIControlStateNormal];
     [self.view addSubview:baseView];
 }
 - (void)didReceiveMemoryWarning {

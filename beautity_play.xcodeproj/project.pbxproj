@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0AC8621D1D2A17009E953F /* stateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0AC8611D1D2A17009E953F /* stateView.m */; };
 		2B0EC03B1D1BDF5800A2C866 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0EC03A1D1BDF5800A2C866 /* main.m */; };
 		2B0EC0441D1BDF5800A2C866 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B0EC0421D1BDF5800A2C866 /* Main.storyboard */; };
 		2B0EC0461D1BDF5800A2C866 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B0EC0451D1BDF5800A2C866 /* Assets.xcassets */; };
@@ -43,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B0AC8601D1D2A17009E953F /* stateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stateView.h; sourceTree = "<group>"; };
+		2B0AC8611D1D2A17009E953F /* stateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stateView.m; sourceTree = "<group>"; };
+		2B0AC8631D1D2AAF009E953F /* publicHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = publicHeader.h; sourceTree = "<group>"; };
 		2B0EC0361D1BDF5800A2C866 /* beautity_play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beautity_play.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B0EC03A1D1BDF5800A2C866 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B0EC0431D1BDF5800A2C866 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -177,8 +181,11 @@
 			children = (
 				2B0EC0791D1BE07400A2C866 /* MyTabbar.h */,
 				2B0EC07A1D1BE07400A2C866 /* MyTabbar.m */,
+				2B0AC8601D1D2A17009E953F /* stateView.h */,
+				2B0AC8611D1D2A17009E953F /* stateView.m */,
 				2B0EC07B1D1BE07400A2C866 /* CJKNavigationView.h */,
 				2B0EC07C1D1BE07400A2C866 /* CJKNavigationView.m */,
+				2B0AC8631D1D2AAF009E953F /* publicHeader.h */,
 			);
 			name = CJKView;
 			sourceTree = "<group>";
@@ -369,6 +376,7 @@
 				2B0EC0881D1BE07400A2C866 /* MyTabbar.m in Sources */,
 				2B0EC08C1D1BE07400A2C866 /* mineViewController.m in Sources */,
 				2B0EC08D1D1BE07400A2C866 /* dynamicViewController.m in Sources */,
+				2B0AC8621D1D2A17009E953F /* stateView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

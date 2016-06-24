@@ -26,12 +26,11 @@
     [super viewDidLoad];
     
     [self creat_navigationView];
-    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
 }
 - (void)creat_navigationView
 {
-    CJKNavigationView * baseView = [[CJKNavigationView alloc]initWithFrame:CGRectMake(0, 20, width_screen, 30)];
+    CJKNavigationView * baseView = [[CJKNavigationView alloc]initWithFrame:CGRectMake(0, 20, width_screen, 35)];
     baseView.titleLabel.text = @"我的";
     baseView.delegate = self;
 
@@ -46,7 +45,11 @@
 {
     NSLog(@"右");
 }
-
+#pragma mark----状态栏
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 /*
 #pragma mark - Navigation
 

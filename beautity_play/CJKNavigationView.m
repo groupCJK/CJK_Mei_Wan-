@@ -23,13 +23,12 @@
 {
     if (self = [super initWithFrame:frame]) {
         
-        self.backgroundColor = [UIColor orangeColor];
+        self.backgroundColor = RGB(64, 144, 164);
         /**左侧按钮*/
         UIButton * leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
         leftButton.center = CGPointMake(20, frame.size.height/2);
         leftButton.bounds = CGRectMake(0, 0, 20, 20);
-        [leftButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-        leftButton.backgroundColor = [UIColor redColor];
+        [leftButton setBackgroundImage:[UIImage imageNamed:@"list_2"] forState:UIControlStateNormal];
         [leftButton addTarget:self action:@selector(leftButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:leftButton];
         self.leftButton = leftButton;
@@ -38,15 +37,16 @@
         UIButton * rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
         rightButton.center = CGPointMake(width_screen-20, frame.size.height/2);
         rightButton.bounds = CGRectMake(0, 0, 20, 20);
-        rightButton.backgroundColor = [UIColor redColor];
         [rightButton addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:rightButton];
         self.rightButton = rightButton;
         
         UILabel * titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(40, 0, width_screen-80, 30)];
         titleLabel.text = @"title";
+        titleLabel.textColor = [UIColor whiteColor];
         titleLabel.center = CGPointMake(frame.size.width/2, frame.size.height/2);
         titleLabel.bounds = CGRectMake(0, 0, width_screen-80, frame.size.height);
+        titleLabel.font = [UIFont systemFontOfSize:15.0];
         titleLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:titleLabel];
         self.titleLabel = titleLabel;
