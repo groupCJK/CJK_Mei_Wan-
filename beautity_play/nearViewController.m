@@ -9,7 +9,8 @@
 #import "nearViewController.h"
 #import "CJKNavigationView.h"
 #import "headerName.pch"
-@interface nearViewController ()
+
+@interface nearViewController ()<CJKNavigationViewDelegate>
 
 @end
 
@@ -29,13 +30,23 @@
 }
 - (void)creat_navigationView
 {
-    CJKNavigationView * baseView = [[CJKNavigationView alloc]initWithFrame:CGRectMake(0, 20, width_screen, 30)];
+    CJKNavigationView * baseView = [[CJKNavigationView alloc]initWithFrame:CGRectMake(0, 20, width_screen, 35)];
+    baseView.delegate = self;
     baseView.titleLabel.text = @"首页";
     [self.view addSubview:baseView];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark----导航栏按钮函数
+-(void)leftButtonClick:(UIButton *)sender
+{
+    NSLog(@"左");
+}
+-(void)rightButtonClick:(UIButton *)sender
+{
+    NSLog(@"右");
 }
 
 /*

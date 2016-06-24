@@ -10,7 +10,7 @@
 #import "headerName.pch"
 #import "CJKNavigationView.h"
 
-@interface messageViewController ()
+@interface messageViewController ()<CJKNavigationViewDelegate>
 
 @end
 
@@ -31,9 +31,20 @@
 - (void)creat_navigationView
 {
     CJKNavigationView * baseView = [[CJKNavigationView alloc]initWithFrame:CGRectMake(0, 20, width_screen, 30)];
+    baseView.delegate = self;
     baseView.titleLabel.text = @"消息";
     [self.view addSubview:baseView];
 }
+#pragma mark----导航栏按钮函数
+-(void)leftButtonClick:(UIButton *)sender
+{
+    NSLog(@"左");
+}
+-(void)rightButtonClick:(UIButton *)sender
+{
+    NSLog(@"右");
+}
+
 
 /*
 #pragma mark - Navigation

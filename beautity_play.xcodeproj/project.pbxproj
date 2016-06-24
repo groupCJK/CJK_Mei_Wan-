@@ -130,8 +130,6 @@
 				2B0EC08F1D1BE14200A2C866 /* CJKView */,
 				2B0EC07D1D1BE07400A2C866 /* headerName.pch */,
 				2B0EC0901D1BE16200A2C866 /* 首页 */,
-				2B0EC07E1D1BE07400A2C866 /* nearViewController.h */,
-				2B0EC07F1D1BE07400A2C866 /* nearViewController.m */,
 				2B0EC0911D1BE17400A2C866 /* 消息 */,
 				2B0EC0921D1BE17D00A2C866 /* 排行榜 */,
 				2B0EC0931D1BE18800A2C866 /* 动态 */,
@@ -185,6 +183,8 @@
 		2B0EC0901D1BE16200A2C866 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				2B0EC07E1D1BE07400A2C866 /* nearViewController.h */,
+				2B0EC07F1D1BE07400A2C866 /* nearViewController.m */,
 			);
 			name = "首页";
 			sourceTree = "<group>";

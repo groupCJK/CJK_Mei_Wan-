@@ -10,7 +10,7 @@
 #import "headerName.pch"
 #import "CJKNavigationView.h"
 
-@interface mineViewController ()
+@interface mineViewController ()<CJKNavigationViewDelegate>
 
 @end
 
@@ -33,7 +33,18 @@
 {
     CJKNavigationView * baseView = [[CJKNavigationView alloc]initWithFrame:CGRectMake(0, 20, width_screen, 30)];
     baseView.titleLabel.text = @"我的";
+    baseView.delegate = self;
+
     [self.view addSubview:baseView];
+}
+#pragma mark----导航栏按钮函数
+-(void)leftButtonClick:(UIButton *)sender
+{
+    NSLog(@"左");
+}
+-(void)rightButtonClick:(UIButton *)sender
+{
+    NSLog(@"右");
 }
 
 /*
