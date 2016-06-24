@@ -10,7 +10,7 @@
 #import "CJKNavigationView.h"
 #import "headerName.pch"
 #import "publicHeader.h"
-@interface nearViewController ()<CJKNavigationViewDelegate>
+@interface nearViewController ()<CJKNavigationViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @end
 
@@ -25,11 +25,18 @@
     [super viewDidLoad];
     
     [self creat_navigationView];
+    [self tableView_creat];
     // Do any additional setup after loading the view.
 }
--(UIStatusBarStyle)preferredStatusBarStyle
+
+#pragma mark----创建区
+-(void)tableView_creat
 {
-    return UIStatusBarStyleLightContent;
+    UITableView * _tableview  =[[UITableView alloc]initWithFrame:CGRectMake(0, 55, width_screen, height_screen-55-40) style:UITableViewStyleGrouped];
+    _tableview.delegate = self;
+    _tableview.dataSource = self;
+    _tableview.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_tableview];
 }
 - (void)creat_navigationView
 {
@@ -40,11 +47,30 @@
     [baseView.rightButton setBackgroundImage:[UIImage imageNamed:@"shouye-sousuo"] forState:UIControlStateNormal];
     [self.view addSubview:baseView];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+#pragma mark----代理区
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2;
 }
-#pragma mark----导航栏按钮函数
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row==0) {
+        return 90;
+    }else{
+        return tableView.frame.size.height-90;
+    }
+}
+
+#pragma mark----自定义代理区-导航栏按钮
 -(void)leftButtonClick:(UIButton *)sender
 {
     NSLog(@"左");
@@ -52,6 +78,11 @@
 -(void)rightButtonClick:(UIButton *)sender
 {
     NSLog(@"右");
+}
+#pragma mark----状态栏
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 /*
