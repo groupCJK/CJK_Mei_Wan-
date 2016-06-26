@@ -23,6 +23,9 @@
 		2B0EC08C1D1BE07400A2C866 /* mineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0EC0831D1BE07400A2C866 /* mineViewController.m */; };
 		2B0EC08D1D1BE07400A2C866 /* dynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0EC0851D1BE07400A2C866 /* dynamicViewController.m */; };
 		2B0EC08E1D1BE07400A2C866 /* topViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0EC0871D1BE07400A2C866 /* topViewController.m */; };
+		2B556D121D1F681F0070F2AE /* UICollectionViewWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B556D111D1F681F0070F2AE /* UICollectionViewWaterfallLayout.m */; };
+		2B556D1E1D1F6F320070F2AE /* CJKCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B556D1D1D1F6F320070F2AE /* CJKCollectionViewCell.m */; };
+		2B556D211D1F801D0070F2AE /* firstPage_scrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B556D201D1F801D0070F2AE /* firstPage_scrollViewCell.m */; };
 		2B5CF4301D1D07A000DB00F2 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5CF42F1D1D07A000DB00F2 /* default@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +81,12 @@
 		2B0EC0851D1BE07400A2C866 /* dynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dynamicViewController.m; sourceTree = "<group>"; };
 		2B0EC0861D1BE07400A2C866 /* topViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = topViewController.h; sourceTree = "<group>"; };
 		2B0EC0871D1BE07400A2C866 /* topViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = topViewController.m; sourceTree = "<group>"; };
+		2B556D101D1F681F0070F2AE /* UICollectionViewWaterfallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewWaterfallLayout.h; sourceTree = "<group>"; };
+		2B556D111D1F681F0070F2AE /* UICollectionViewWaterfallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewWaterfallLayout.m; sourceTree = "<group>"; };
+		2B556D1C1D1F6F320070F2AE /* CJKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJKCollectionViewCell.h; sourceTree = "<group>"; };
+		2B556D1D1D1F6F320070F2AE /* CJKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJKCollectionViewCell.m; sourceTree = "<group>"; };
+		2B556D1F1D1F801D0070F2AE /* firstPage_scrollViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = firstPage_scrollViewCell.h; sourceTree = "<group>"; };
+		2B556D201D1F801D0070F2AE /* firstPage_scrollViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = firstPage_scrollViewCell.m; sourceTree = "<group>"; };
 		2B5CF42F1D1D07A000DB00F2 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +142,8 @@
 				2B0EC06D1D1BDF9F00A2C866 /* AppDelegate.m */,
 				2B0EC06E1D1BDF9F00A2C866 /* ViewController.h */,
 				2B0EC06F1D1BDF9F00A2C866 /* ViewController.m */,
+				2B556D101D1F681F0070F2AE /* UICollectionViewWaterfallLayout.h */,
+				2B556D111D1F681F0070F2AE /* UICollectionViewWaterfallLayout.m */,
 				2B0EC08F1D1BE14200A2C866 /* CJKView */,
 				2B0EC07D1D1BE07400A2C866 /* headerName.pch */,
 				2B0EC0901D1BE16200A2C866 /* 首页 */,
@@ -195,6 +206,9 @@
 			children = (
 				2B0EC07E1D1BE07400A2C866 /* nearViewController.h */,
 				2B0EC07F1D1BE07400A2C866 /* nearViewController.m */,
+				2B556D0C1D1F65CB0070F2AE /* controller */,
+				2B556D0B1D1F65BF0070F2AE /* view */,
+				2B556D0A1D1F65AA0070F2AE /* model */,
 			);
 			name = "首页";
 			sourceTree = "<group>";
@@ -233,6 +247,31 @@
 				2B0EC0831D1BE07400A2C866 /* mineViewController.m */,
 			);
 			name = "个人";
+			sourceTree = "<group>";
+		};
+		2B556D0A1D1F65AA0070F2AE /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		2B556D0B1D1F65BF0070F2AE /* view */ = {
+			isa = PBXGroup;
+			children = (
+				2B556D1F1D1F801D0070F2AE /* firstPage_scrollViewCell.h */,
+				2B556D201D1F801D0070F2AE /* firstPage_scrollViewCell.m */,
+				2B556D1C1D1F6F320070F2AE /* CJKCollectionViewCell.h */,
+				2B556D1D1D1F6F320070F2AE /* CJKCollectionViewCell.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		2B556D0C1D1F65CB0070F2AE /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,11 +410,14 @@
 				2B0EC08B1D1BE07400A2C866 /* messageViewController.m in Sources */,
 				2B0EC0711D1BDF9F00A2C866 /* AppDelegate.m in Sources */,
 				2B0EC03B1D1BDF5800A2C866 /* main.m in Sources */,
+				2B556D211D1F801D0070F2AE /* firstPage_scrollViewCell.m in Sources */,
 				2B0EC0891D1BE07400A2C866 /* CJKNavigationView.m in Sources */,
 				2B0EC08E1D1BE07400A2C866 /* topViewController.m in Sources */,
 				2B0EC0881D1BE07400A2C866 /* MyTabbar.m in Sources */,
 				2B0EC08C1D1BE07400A2C866 /* mineViewController.m in Sources */,
 				2B0EC08D1D1BE07400A2C866 /* dynamicViewController.m in Sources */,
+				2B556D121D1F681F0070F2AE /* UICollectionViewWaterfallLayout.m in Sources */,
+				2B556D1E1D1F6F320070F2AE /* CJKCollectionViewCell.m in Sources */,
 				2B0AC8621D1D2A17009E953F /* stateView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,9 @@
 #define publicHeader_h
 
 #import "stateView.h"
-
+#import "firstPage_scrollViewCell.h"
+#import "UICollectionViewWaterfallLayout.h"
+#import "CJKCollectionViewCell.h"
 
 
 #endif /* publicHeader_h */
