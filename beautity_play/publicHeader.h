@@ -13,6 +13,6 @@
 #import "firstPage_scrollViewCell.h"
 #import "UICollectionViewWaterfallLayout.h"
 #import "CJKCollectionViewCell.h"
-
+#import "searchView.h"
 
 #endif /* publicHeader_h */

@@ -55,7 +55,24 @@
 }
 -(void)leftButtonClick:(UIButton *)sender
 {
-    [self.delegate leftButtonClick:sender];
+    CGContextRef context=UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:1.0];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:sender cache:YES];
+    static int i = 0;
+    i++;
+    if (i%2==0) {
+        [sender setBackgroundImage:[UIImage imageNamed:@"list_2"] forState:UIControlStateNormal];
+    }else{
+        [sender setBackgroundImage:[UIImage imageNamed:@"list3"] forState:UIControlStateNormal];
+    }
+    [UIView setAnimationDelegate:self];
+    [UIView commitAnimations];
+}
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    [self.delegate leftButtonClick:self.leftButton];
 }
 -(void)rightButtonClick:(UIButton *)sender
 {

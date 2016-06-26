@@ -27,7 +27,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 20, width_screen, height_screen)];
+    view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:view];
     [self creat_navigationView];
     [self tableView_creat];
     // Do any additional setup after loading the view.
@@ -161,10 +164,27 @@
 -(void)leftButtonClick:(UIButton *)sender
 {
     NSLog(@"左");
+    
+    
+    CGContextRef context=UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:1.0];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_tableview cache:YES];
+    [UIView setAnimationDelegate:self];
+    [UIView commitAnimations];
+    
+}
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    NSLog(@"动画结束%d",flag);
 }
 -(void)rightButtonClick:(UIButton *)sender
 {
     NSLog(@"右");
+    searchView * searchview  = [[searchView alloc]initWithFrame:CGRectMake(0, 0, width_screen, height_screen)];
+    [self.view addSubview:searchview];
+    
 }
 #pragma mark----自定义代理区滑动视图上图片点击事件
 -(void)scrollImageViewClick:(UIGestureRecognizer *)gesture
