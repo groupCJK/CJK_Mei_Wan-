@@ -10,4 +10,16 @@
 
 @interface CJKCollectionViewCell : UICollectionViewCell
 
+@property(nonatomic,strong)UIImageView * userImage;
+@property(nonatomic,strong)UILabel * hotNumber;
+@property(nonatomic,strong)UILabel * nickNameLabel;
+@property(nonatomic,strong)UILabel * ageLabel;
+@property(nonatomic,strong)UILabel * locationLabel;
+@property(nonatomic,strong)UILabel * priceLabel;
+@property(nonatomic,strong)UILabel * loginTime;
+
+@property(nonatomic,strong)UILabel * rightlabel;
+@property(nonatomic,strong)UILabel * centerlabel;
+@property(nonatomic,strong)UILabel * leftlabel;
+
 @end
