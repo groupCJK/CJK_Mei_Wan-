@@ -15,7 +15,9 @@
 @end
 
 @interface searchView : UIView
-
+{
+    BOOL isSelect[5];
+}
 @property(nonatomic,weak)id<searchViewDelegate>delegate;
 
 @end

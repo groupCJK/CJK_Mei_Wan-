@@ -35,7 +35,7 @@
         tiaojian.textAlignment = NSTextAlignmentCenter;
         [view addSubview:tiaojian];
         //line
-        UIImageView * lineView = [[UIImageView alloc]initWithFrame:CGRectMake(25, tiaojian.frame.size.height+tiaojian.frame.origin.y+9, view.frame.size.width-50, 0.5)];
+        UIImageView * lineView = [[UIImageView alloc]initWithFrame:CGRectMake(15, tiaojian.frame.size.height+tiaojian.frame.origin.y+9, view.frame.size.width-30, 0.5)];
         lineView.backgroundColor = RGB(139, 139, 139);
         [view addSubview:lineView];
         //条件
@@ -87,11 +87,44 @@
         pricelabel.font = [UIFont systemFontOfSize:10.0];
         pricelabel.textColor = RGB(166, 166, 166);
         pricelabel.text = @"价格";
+        pricelabel.textAlignment = NSTextAlignmentCenter;
         CGSize priceSize = [pricelabel.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:pricelabel.font,NSFontAttributeName, nil]];
-        pricelabel.frame = CGRectMake(view.frame.size.width/2-priceSize.width/2, noSex.center.y+7.5+18, priceSize.width, priceSize.height);
+        pricelabel.frame = CGRectMake(view.frame.size.width/2-priceSize.width/2, noSex.center.y+7.5+10, priceSize.width +10, priceSize.height);
         [view addSubview:pricelabel];
         
         //线
+        UIImageView * leftLine = [[UIImageView alloc]initWithFrame:CGRectMake(lineView.frame.origin.x, lineView.frame.origin.y+14+15+10+priceSize.height/2, (lineView.frame.size.width-pricelabel.frame.size.width-lineView.frame.origin.x)/2, 0.5)];
+        leftLine.backgroundColor = pricelabel.textColor;
+        [view addSubview:leftLine];
+        
+        UIImageView * rightLine = [[UIImageView alloc]initWithFrame:CGRectMake(pricelabel.frame.origin.x+pricelabel.frame.size.width, leftLine.frame.origin.y, leftLine.frame.size.width, 0.5)];
+        rightLine.backgroundColor = leftLine.backgroundColor;
+        [view addSubview:rightLine];
+        
+        NSArray * priceArray = @[@"39元以下",@"39元-69元",@"69元-99元",@"99元以上",@"不限"];
+        //价格区间
+        for (int i = 0; i<5; i++) {
+            UIButton * sectionPrice = [UIButton buttonWithType:UIButtonTypeCustom];
+            
+            [sectionPrice setTitle:priceArray[i] forState:UIControlStateNormal];
+            sectionPrice.titleLabel.textAlignment = NSTextAlignmentCenter;
+            sectionPrice.titleLabel.font = [UIFont systemFontOfSize:10.0];
+            if (isSelect==NO) {
+                
+            }else{
+                sectionPrice.backgroundColor = tiaojian.textColor;
+            }
+            sectionPrice.layer.cornerRadius = 3;
+            
+            CGSize size = [sectionPrice.titleLabel.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:sectionPrice.titleLabel.font,NSFontAttributeName, nil]];
+            int row = i/3;  int low = i%3;
+            sectionPrice.frame = CGRectMake((lineView.frame.origin.x) + (60) * low, leftLine.frame.origin.y+13 + (10 +size.height+2) * row, 55, size.height + 2);
+            NSLog(@"%f",sectionPrice.frame.size.width);
+
+            sectionPrice.tag = i;
+            [sectionPrice addTarget:self action:@selector(sectionPriceClick:) forControlEvents:UIControlEventTouchUpInside];
+            [view addSubview:sectionPrice];
+        }
         
     }
     return self;
@@ -119,5 +152,89 @@
             break;
     }
     [self.delegate sexChooseButtonClick:sender];
+}
+-(void)sectionPriceClick:(UIButton *)sender
+{
+    switch (sender.tag) {
+        case 0:
+        {
+            isSelect[0]=YES;
+            isSelect[1]=NO;
+            isSelect[2]=NO;
+            isSelect[3]=NO;
+            isSelect[4]=NO;
+            
+            if (isSelect[0]==YES) {
+                sender.backgroundColor = RGB(63, 144, 164);
+            }else{
+                sender.backgroundColor = [UIColor clearColor];
+            }
+            
+        }
+            break;
+            
+        case 1:
+        {
+            isSelect[0]=YES;
+            isSelect[1]=NO;
+            isSelect[2]=NO;
+            isSelect[3]=NO;
+            isSelect[4]=NO;
+            
+            if (isSelect[0]==YES) {
+                sender.backgroundColor = RGB(63, 144, 164);
+            }else{
+                sender.backgroundColor = [UIColor clearColor];
+            }
+        }
+            break;
+        case 2:
+        {
+            isSelect[0]=YES;
+            isSelect[1]=NO;
+            isSelect[2]=NO;
+            isSelect[3]=NO;
+            isSelect[4]=NO;
+            
+            if (isSelect[0]==YES) {
+                sender.backgroundColor = RGB(63, 144, 164);
+            }else{
+                sender.backgroundColor = [UIColor clearColor];
+            }
+        }
+            break;
+        case 3:
+        {
+            isSelect[0]=YES;
+            isSelect[1]=NO;
+            isSelect[2]=NO;
+            isSelect[3]=NO;
+            isSelect[4]=NO;
+            
+            if (isSelect[0]==YES) {
+                sender.backgroundColor = RGB(63, 144, 164);
+            }else{
+                sender.backgroundColor = [UIColor clearColor];
+            }
+        }
+            break;
+        case 4:
+        {
+            isSelect[0]=YES;
+            isSelect[1]=NO;
+            isSelect[2]=NO;
+            isSelect[3]=NO;
+            isSelect[4]=NO;
+            
+            if (isSelect[0]==YES) {
+                sender.backgroundColor = RGB(63, 144, 164);
+            }else{
+                sender.backgroundColor = [UIColor clearColor];
+            }
+        }
+            break;
+        default:
+            break;
+    }
 }
 @end
