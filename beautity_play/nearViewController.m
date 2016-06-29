@@ -10,7 +10,7 @@
 #import "CJKNavigationView.h"
 #import "headerName.pch"
 #import "publicHeader.h"
-@interface nearViewController ()<CJKNavigationViewDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegateWaterfallLayout,UICollectionViewDataSource,firstPage_scrollViewCellDelegate>
+@interface nearViewController ()<CJKNavigationViewDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegateWaterfallLayout,UICollectionViewDataSource,firstPage_scrollViewCellDelegate,searchViewDelegate>
 {
     UICollectionViewWaterfallLayout * _layout;
     UICollectionView * _collectionView;
@@ -183,8 +183,18 @@
 {
     NSLog(@"右");
     searchView * searchview  = [[searchView alloc]initWithFrame:CGRectMake(0, 0, width_screen, height_screen)];
+    searchview.delegate = self;
     [self.view addSubview:searchview];
     
+}
+#pragma mark----自定义代理区条件搜索代理
+-(void)sexChooseButtonClick:(UIButton *)sender
+{
+    NSLog(@"性别选择%@",sender.titleLabel.text);
+}
+-(void)priceChooseButtonClick:(UIButton *)sender
+{
+    NSLog(@"价格选择%@",sender.titleLabel.text);
 }
 #pragma mark----自定义代理区滑动视图上图片点击事件
 -(void)scrollImageViewClick:(UIGestureRecognizer *)gesture

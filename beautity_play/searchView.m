@@ -15,6 +15,8 @@
 {
     if (self = [super initWithFrame:frame]) {
         
+        isSelect[5] = NO;
+        
         UIView * baseView = [[UIView alloc]initWithFrame:frame];
         baseView.backgroundColor = [UIColor blackColor];
         baseView.alpha = 0.5;
@@ -50,6 +52,7 @@
         noSex.tag = 0;
         [noSex addTarget:self action:@selector(sexChooseButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:noSex];
+        self.chooseSexButton = noSex;
         //
         UIButton * man = [UIButton buttonWithType:UIButtonTypeCustom];
         man.center = CGPointMake(tiaojian.center.x+13, noSex.center.y);
@@ -63,6 +66,7 @@
         man.tag = 1;
         [man addTarget:self action:@selector(sexChooseButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:man];
+        self.chooseSexButton = man;
         //
         UIButton * woman = [UIButton buttonWithType:UIButtonTypeCustom];
         woman.frame = CGRectMake(lineView.frame.size.width+lineView.frame.origin.x-10 - 30, man.frame.origin.y, 45, 15);
@@ -75,12 +79,7 @@
         woman.tag = 2;
         [woman addTarget:self action:@selector(sexChooseButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:woman];
-        //取消确定按钮View
-        UIView * buttonBaseView = [[UIView alloc]initWithFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y+7+view.frame.size.height, view.frame.size.width, 31)];
-        buttonBaseView.backgroundColor = [UIColor whiteColor];
-        buttonBaseView.layer.cornerRadius = 7;
-        buttonBaseView.clipsToBounds = YES;
-        [self addSubview:buttonBaseView];
+        self.chooseSexButton = woman;
         
         //价格
         UILabel * pricelabel = [[UILabel alloc]init];
@@ -104,15 +103,18 @@
         NSArray * priceArray = @[@"39元以下",@"39元-69元",@"69元-99元",@"99元以上",@"不限"];
         //价格区间
         for (int i = 0; i<5; i++) {
+            
             UIButton * sectionPrice = [UIButton buttonWithType:UIButtonTypeCustom];
             
             [sectionPrice setTitle:priceArray[i] forState:UIControlStateNormal];
             sectionPrice.titleLabel.textAlignment = NSTextAlignmentCenter;
             sectionPrice.titleLabel.font = [UIFont systemFontOfSize:10.0];
-            if (isSelect==NO) {
-                
+            if (isSelect[i] == NO) {
+                sectionPrice.backgroundColor = [UIColor whiteColor];
+                [sectionPrice setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             }else{
                 sectionPrice.backgroundColor = tiaojian.textColor;
+                [sectionPrice setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             }
             sectionPrice.layer.cornerRadius = 3;
             
@@ -120,121 +122,83 @@
             int row = i/3;  int low = i%3;
             sectionPrice.frame = CGRectMake((lineView.frame.origin.x) + (60) * low, leftLine.frame.origin.y+13 + (10 +size.height+2) * row, 55, size.height + 2);
             NSLog(@"%f",sectionPrice.frame.size.width);
-
+            
             sectionPrice.tag = i;
             [sectionPrice addTarget:self action:@selector(sectionPriceClick:) forControlEvents:UIControlEventTouchUpInside];
             [view addSubview:sectionPrice];
+            
+            self.buttonPriceChoose = sectionPrice;
+            
         }
         
+        
+        
+        //取消确定按钮View
+        UIView * buttonBaseView = [[UIView alloc]initWithFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y+7+view.frame.size.height, view.frame.size.width, 31)];
+        buttonBaseView.backgroundColor = [UIColor whiteColor];
+        buttonBaseView.layer.cornerRadius = 7;
+        buttonBaseView.clipsToBounds = YES;
+        [self addSubview:buttonBaseView];
+        
+        //取消按钮
+        UIButton * cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        cancelButton.frame = CGRectMake(0, 0, buttonBaseView.frame.size.width/2, buttonBaseView.frame.size.height);
+        cancelButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+        [cancelButton setTitleColor:RGB(64, 144, 164) forState:UIControlStateNormal];
+        cancelButton.tag = 0;
+        [cancelButton addTarget:self action:@selector(cancelAndOtherButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [buttonBaseView addSubview:cancelButton];
+        
+        //确定按钮
+        UIButton * sureButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        sureButton.frame = CGRectMake(cancelButton.frame.size.width, 0, cancelButton.frame.size.width, cancelButton.frame.size.height);
+        sureButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [sureButton setTitle:@"确定" forState:UIControlStateNormal];
+        [sureButton setTitleColor:RGB(64, 144, 164) forState:UIControlStateNormal];
+        sureButton.tag = 1;
+        [sureButton addTarget:self action:@selector(cancelAndOtherButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [buttonBaseView addSubview:sureButton];
     }
     return self;
 }
+- (void)cancelAndOtherButtonClick:(UIButton *)sender
+{
+    NSLog(@"取消确定按钮%ld",(long)sender.tag);
+    self.alpha = 0;
+}
 - (void)sexChooseButtonClick:(UIButton *)sender
 {
-    switch (sender.tag) {
-        case 0:
-        {
-            NSLog(@"不限");
-        }
-            break;
-        case 1:
-        {
-            NSLog(@"男");
-        }
-            break;
-        case 2:
-        {
-            NSLog(@"女");
-        }
-            break;
-            
-        default:
-            break;
+    if (sender!=self.chooseSexButton) {
+        self.chooseSexButton.selected = NO;
+        [self.chooseSexButton setImage:[UIImage imageNamed:@"searchIcon2"] forState:UIControlStateNormal];
+        self.chooseSexButton = sender;
     }
+    
+    self.chooseSexButton.selected = YES;
+    [self.chooseSexButton setImage:[UIImage imageNamed:@"searchIcon"] forState:UIControlStateNormal];
+    
+    
     [self.delegate sexChooseButtonClick:sender];
 }
 -(void)sectionPriceClick:(UIButton *)sender
 {
-    switch (sender.tag) {
-        case 0:
-        {
-            isSelect[0]=YES;
-            isSelect[1]=NO;
-            isSelect[2]=NO;
-            isSelect[3]=NO;
-            isSelect[4]=NO;
-            
-            if (isSelect[0]==YES) {
-                sender.backgroundColor = RGB(63, 144, 164);
-            }else{
-                sender.backgroundColor = [UIColor clearColor];
-            }
-            
-        }
-            break;
-            
-        case 1:
-        {
-            isSelect[0]=NO;
-            isSelect[1]=YES;
-            isSelect[2]=NO;
-            isSelect[3]=NO;
-            isSelect[4]=NO;
-            
-            if (isSelect[0]==YES) {
-                sender.backgroundColor = RGB(63, 144, 164);
-            }else{
-                sender.backgroundColor = [UIColor clearColor];
-            }
-        }
-            break;
-        case 2:
-        {
-            isSelect[0]=NO;
-            isSelect[1]=NO;
-            isSelect[2]=YES;
-            isSelect[3]=NO;
-            isSelect[4]=NO;
-            
-            if (isSelect[0]==YES) {
-                sender.backgroundColor = RGB(63, 144, 164);
-            }else{
-                sender.backgroundColor = [UIColor clearColor];
-            }
-        }
-            break;
-        case 3:
-        {
-            isSelect[0]=NO;
-            isSelect[1]=NO;
-            isSelect[2]=NO;
-            isSelect[3]=YES;
-            isSelect[4]=NO;
-            
-            if (isSelect[0]==YES) {
-                sender.backgroundColor = RGB(63, 144, 164);
-            }else{
-                sender.backgroundColor = [UIColor clearColor];
-            }
-        }
-            break;
-        case 4:
-        {
-            isSelect[0]=NO;
-            isSelect[1]=NO;
-            isSelect[2]=NO;
-            isSelect[3]=NO;
-            isSelect[4]=YES;
-            
-            if (isSelect[0]==YES) {
-                sender.backgroundColor = RGB(63, 144, 164);
-            }else{
-                sender.backgroundColor = [UIColor clearColor];
-            }
-        }
-            break;
-        default:
-            break;
+    
+    if(sender!=self.buttonPriceChoose){
+        
+        self.buttonPriceChoose.selected=NO;
+        [self.buttonPriceChoose setTitleColor:RGB(166, 166, 166) forState:UIControlStateNormal];
+        [self.buttonPriceChoose setBackgroundColor:[UIColor clearColor]];
+        self.buttonPriceChoose=sender;
+        
+        
     }
+    self.buttonPriceChoose.selected=YES;
+    [self.buttonPriceChoose setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.buttonPriceChoose setBackgroundColor:RGB(64, 144, 164)];
+    
+    
+    
+    [self.delegate priceChooseButtonClick:sender];
 }
 @end

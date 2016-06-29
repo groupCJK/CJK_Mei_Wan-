@@ -11,6 +11,8 @@
 @protocol searchViewDelegate <NSObject>
 /**条件搜索性别选择*/
 - (void)sexChooseButtonClick:(UIButton *)sender;
+/**条件搜索价格区间选择*/
+- (void)priceChooseButtonClick:(UIButton *)sender;
 
 @end
 
@@ -18,6 +20,8 @@
 {
     BOOL isSelect[5];
 }
+@property(nonatomic,strong)UIButton * chooseSexButton;
+@property(nonatomic,strong)UIButton * buttonPriceChoose;
 @property(nonatomic,weak)id<searchViewDelegate>delegate;
 
 @end
