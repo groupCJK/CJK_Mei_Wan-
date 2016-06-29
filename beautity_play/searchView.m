@@ -175,8 +175,8 @@
             
         case 1:
         {
-            isSelect[0]=YES;
-            isSelect[1]=NO;
+            isSelect[0]=NO;
+            isSelect[1]=YES;
             isSelect[2]=NO;
             isSelect[3]=NO;
             isSelect[4]=NO;
@@ -190,9 +190,9 @@
             break;
         case 2:
         {
-            isSelect[0]=YES;
+            isSelect[0]=NO;
             isSelect[1]=NO;
-            isSelect[2]=NO;
+            isSelect[2]=YES;
             isSelect[3]=NO;
             isSelect[4]=NO;
             
@@ -205,10 +205,10 @@
             break;
         case 3:
         {
-            isSelect[0]=YES;
+            isSelect[0]=NO;
             isSelect[1]=NO;
             isSelect[2]=NO;
-            isSelect[3]=NO;
+            isSelect[3]=YES;
             isSelect[4]=NO;
             
             if (isSelect[0]==YES) {
@@ -220,11 +220,11 @@
             break;
         case 4:
         {
-            isSelect[0]=YES;
+            isSelect[0]=NO;
             isSelect[1]=NO;
             isSelect[2]=NO;
             isSelect[3]=NO;
-            isSelect[4]=NO;
+            isSelect[4]=YES;
             
             if (isSelect[0]==YES) {
                 sender.backgroundColor = RGB(63, 144, 164);
